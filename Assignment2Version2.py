@@ -27,7 +27,7 @@ def load_and_get_table_df(keys_space_name, table_name):
 def handler(message):
 	records = message.collect()
 	for record in records:
-####QUESTIONS 1.1
+#####QUESTIONS 1.1
 	# 	print(record[1])
 	# 	data=record[1]
 	# 	dataRecords = data.split(",")
