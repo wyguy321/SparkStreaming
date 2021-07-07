@@ -6,7 +6,7 @@ from pyspark.streaming import StreamingContext
 #    Kafka
 from pyspark.streaming.kafka import KafkaUtils
 from pyspark.sql import SQLContext
-from pyspark.sql.types import StructType,StructField, StringType, IntegerType, DoubleType,FloatType
+from pyspark.sql.types import StructType,StructField, StringType, IntegerType, DoubleType,FloatType,LongType
 #    json parsing
 import json
 import os
@@ -27,6 +27,41 @@ def load_and_get_table_df(keys_space_name, table_name):
 def handler(message):
 	records = message.collect()
 	for record in records:
+####QUESTIONS 1.1
+	# 	print(record[1])
+	# 	data=record[1]
+	# 	dataRecords = data.split(",")
+	# 	print("RECORD 1")
+	# 	print(dataRecords[0])
+	# 	print("RECORD 2")
+	# 	print(dataRecords[1])
+	# 	r1 = uuid.uuid4()
+	# 	schema = StructType([ \
+	# StructField("flightid",StringType(),True), \
+	# StructField("destination",StringType(),True), \
+	# StructField(StructField("NumberOfFlights",LongType(),True)])
+		# 	#df = spark.createDataFrame(data=data2,schema=schema)
+	# 	data2 = [(r1,str(dataRecords[0]),float(dataRecords[1]))]
+	# 	df = spark.createDataFrame(data=data2,schema=schema)
+		#df.write.format("org.apache.spark.sql.cassandra").mode('append').options(table='questiononethree', keyspace='questiononethree').save()		
+
+####QUESTIONS 1.2
+	# 	print(record[1])
+	# 	data=record[1]
+	# 	dataRecords = data.split(",")
+	# 	print("RECORD 1")
+	# 	print(dataRecords[0])
+	# 	print("RECORD 2")
+	# 	print(dataRecords[1])
+	# 	r1 = uuid.uuid4()
+	# 	schema = StructType([ \
+	# StructField("flightid",StringType(),True), \
+	# StructField("airline",StringType(),True), \
+	# StructField(StructField("averagedelay",FloatType(),True)])
+		# 	#df = spark.createDataFrame(data=data2,schema=schema)
+	# 	data2 = [(r1,str(dataRecords[0]),float(dataRecords[1]))]
+	# 	df = spark.createDataFrame(data=data2,schema=schema)
+		#df.write.format("org.apache.spark.sql.cassandra").mode('append').options(table='questiononetwo', keyspace='questiononetwo').save()		
 ####QUESTIONS 2.1,2.2,2.3
 	# 	print(record[1])
 	# 	data=record[1]
@@ -37,9 +72,9 @@ def handler(message):
 	# 	print(dataRecords[1])
 	# 	print("RECORD 3")
 	# 	print(dataRecords[2])
-	# 	r1 = random.randint(1, 100)
+	# 	r1 = uuid.uuid4()
 	# 	schema = StructType([ \
-	# StructField("flightid",IntegerType(),True), \
+	# StructField("flightid",StringType(),True), \
 	# StructField("airline",StringType(),True), \
 	# StructField("origin",StringType(),True),StructField("averagedelay",FloatType(),True)])
 

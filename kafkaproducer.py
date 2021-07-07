@@ -5,7 +5,7 @@ import pandas
 import pandas as pd
 import os
 
-bootstrap_servers = [XXXXX.c2.kafka.us-east-1.amazonaws.com:9092','XXXXXX.c2.kafka.us-east-1.amazonaws.com:9092']
+bootstrap_servers = ['XXXXX.c2.kafka.us-east-1.amazonaws.com:9092','XXXXXX.c2.kafka.us-east-1.amazonaws.com:9092']
 topicName = 'example_topic'
 producer = KafkaProducer(bootstrap_servers = bootstrap_servers)
 
@@ -24,6 +24,21 @@ for subdir, dirs, files in os.walk('/tempDIR'):
         df = pd.read_csv(file)
         print(df.head())
         for index, row in df.iterrows():
+            ######QUESTIONS 1.2
+            ##airline = str(row['Airline']+",")
+            ##averageDelay = str(row['Average delay in minutes'])
+            ##averageDelayMsg = averageDelay
+            ##record=airline+averageDelayMsg+","+origin
+            ##producer.send(topicName, key=b'RECORD', value=str.encode(record))
+
+            ######QUESTIONS 1.1
+            ##airline = str(row['Destination']+",")
+            ##averageDelay = str(row['NumberOfFlights'])
+            ##averageDelayMsg = averageDelay
+            ##record=airline+averageDelayMsg+","+origin
+            ##producer.send(topicName, key=b'RECORD', value=str.encode(record))
+
+
             ######QUESTIONS 2.1,2.2,2.3
             ##airline = str(row['Airline']+",")
             ##averageDelay = str(row['Average delay in minutes'])
